@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        #main {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .contener {
+            text-align: center;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .contener:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .contener img {
+            width: 80%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .contener h3 {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        .contener p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .contener span {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff5722;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .contener button {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            background-color: #4caf50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contener button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        
+    </div>
+
+
+    <script>
+        let mydata = [
+            {
+                id:1,
+                img: "https://m.media-amazon.com/images/I/710SxepIfiL._SX679_.jpg",
+                title: "Lifelong PVC Hex Dumbbells Pack of 2 (5kg*2) Black Color for Home Gym Equipment Fitness Barbell|Gym Exercise" ,
+                desc : "Set of 2 PVC hex dumbbells for resistance training; each dumbbell weighs 5 kg *2 total 10 kg weight Made in India",
+                brand : "Lifelong",
+                price : "509",
+            },
+            {
+                id:1,
+                img: "https://m.media-amazon.com/images/I/51xkoJDVI9L._SX679_.jpg",
+                title: " Aurion by 10 club Strength Training Kettlebells for Weightlifting - 1Pc (6 Kg, Black)" ,
+                desc : "PVC Molding: The inside of the kettlebells is filled with concrete for weight and resistance workouts and coated with polyvinyl chloride (PVC) for durable and durable dumbbells.",
+                brand : "AURION",
+                price : "699",
+            },
+            {
+                id:1,
+                img: "https://m.media-amazon.com/images/I/61WJSeHTvuL._SX679_.jpg",
+                title: " Lifelong Polypropylene Adjustable Home Gym Exercise Fitness Stepper for Exercise Aerobics Stepper with 3 Height Adjustments" ,
+                desc : "Step platform surface is non-stick, non-slip, and shock absorbing, can ensure you exercise easily and safely",
+                brand : "Lifelong",
+                price : "1199",
+            },
+            {
+                id:1,
+                img: "https://m.media-amazon.com/images/I/21zYKF7brFL._SX300_SY300_QL70_FMwebp_.jpg",
+                title: "B Fit LAT Bar Cable Machine Attachment with Full Rotation and Rubber Handle for Gym," ,
+                desc : "UPGRADED HIGH QUALITY LAT BAR: This lat pull down bar Length 20 inches; Support up to 500lb or more which can perform forehand pull-down and backhand pull-down movements to reach the position where you want to exercise your muscles.",
+                brand : "B fit",
+                price : "1599",
+            },
+        ]
+
+        let maincont = document.getElementById("main");
+        for (const product of mydata) {
+            maincont.innerHTML +=`
+            <div class="contener">
+            <img src="${product.img}" alt="erroe">
+            <h3>${product.title}</h3>
+            <p>${product.desc}</p>
+            <p> <b>brand :</b> ${product.brand}</p>
+            <span><sup>&#8377;</sup>${product.price}</span>
+            <button>View Item</button>
+        </div>`            
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color change</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-color: azure;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        #contener {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            padding: 15px;
+            background-color: white;
+            box-shadow: 2px 5px 18px 0px black;
+            position: relative;
+        }
+
+        #cont {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #color-box {
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+            position: absolute;
+            bottom: 20%;
+            left: 30%;
+
+        }
+
+        h2,
+        input,
+        button {
+            margin-left: 15px;
+        }
+
+        button {
+            cursor: pointer;
+            width: 50px;
+            height: 35px;
+            font-size: 1.3rem;
+            border: 3px solid rgb(253, 113, 113);
+            background-color: rgb(250, 0, 0);
+            box-shadow: 0px 0px 2px 2px rgb(250, 153, 153);
+            border-radius: 50px;
+        }
+
+        input{
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="contener">
+        <div id="cont">
+            <h2>set color:</h2>
+            <input type="color" name="color" id="color">
+            <button onclick="change()"><i class="fa-solid fa-paint-roller"></i></button>
+        </div>
+        <hr>
+        <div id="color-box"></div>
+    </div>
+
+    <script>
+        function change() {
+            let inp = document.getElementById("color").value;
+            let box = document.getElementById("color-box");
+
+            box.style.backgroundColor = inp
+
+
+        }
+    </script>
+</body>
+
+</html>

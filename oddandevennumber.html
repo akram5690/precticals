@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd and Even Number Checker</title>
+    <style>
+        body{
+            background-color: rgb(70, 68, 68);
+        }
+        .container {
+            background-color: rgb(216, 213, 58);
+            font-family: Arial, sans-serif;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: center;
+            max-width: 300px;
+            border: 4px solid rgb(255, 252, 105);
+            border-radius: 15px;
+            box-shadow: 0px 0px 5px 4px rgb(255, 251, 30);
+        }
+        #src{
+            border-radius: 7px;
+        }
+        .input, .btn-cont {
+            margin: 10px 0;
+        }
+        #btn{
+            border-radius: 5px;
+            background-color: rgb(73, 72, 72);
+            color: white;
+        }
+        h5 {
+            display: inline;
+        }
+        #span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input">
+            <h3>Enter a Number:</h3>
+            <input type="text" name="src" id="src" oninput="num()">
+        </div>
+        <div class="btn-cont">
+            <button id="btn" onclick="checkNumber()">Check</button>
+        </div>
+        <h5>Answer is: </h5><span id="span"></span>
+    </div>
+
+    <script>
+        function checkNumber() {
+            let input = document.getElementById("src").value.trim();
+            document.getElementById("src").value = "";
+            let span = document.getElementById("span");
+            
+            
+            if (isNaN(input)) {
+                span.innerHTML = "Invalid input! Please enter a number.";
+                span.style.color = "red";
+            }else if(input == ""){
+                span.innerHTML = "Enter number";
+                span.style.color = "red";
+
+            } else if (input % 2 == 0) {
+                span.innerHTML = "even number";
+                span.style.color = "green";
+            } else {
+                span.innerHTML = "odd number";
+                span.style.color = "blue";
+            }
+        }
+        function num(){
+            let input = document.getElementById("src")
+            input.value = input.value.replace(/[\D]/,'')
+        }
+    </script>
+</body>
+</html>
