@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .sliderbox {
+            margin: auto;
+            width: 90%;
+            height: 50vh;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slider {
+            width: 250px;
+            height: 250px;
+            flex-shrink: 0;
+        }
+
+        .controls {
+            width: 100%;
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.8rem;
+        }
+
+        .controls i {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sliderbox">
+        <div class="slider-container">
+            <div class="slider" style="background-color: aquamarine;"></div>
+            <div class="slider" style="background-color: rgb(6, 94, 64);"></div>
+            <div class="slider" style="background-color: rgb(64, 15, 155);"></div>
+            <div class="slider" style="background-color: rgb(137, 221, 27);"></div>
+            <div class="slider" style="background-color: rgb(199, 45, 45);"></div>
+        </div>
+        <div class="controls">
+            <i class="fa-solid fa-chevron-left" onclick="change(-1)"></i>
+            <i class="fa-solid fa-chevron-right" onclick="change(1)"></i>
+        </div>
+    </div>
+
+    <script>
+        let sliderIndex = 0;
+
+        function change(direction) {
+            const sliderContainer = document.querySelector('.slider-container');
+            const sliders = document.querySelectorAll('.slider');
+            const totalSlides = sliders.length;
+
+            sliderIndex += direction;
+
+            if (sliderIndex < 0) {
+                sliderIndex = totalSlides - 1;
+            }
+            if (sliderIndex >= totalSlides) {
+                sliderIndex = 0;
+            }
+
+            sliderContainer.style.transform = `translateX(-${sliderIndex * 260}px)`;
+        }
+    </script>
+</body>
+
+</html>
+
