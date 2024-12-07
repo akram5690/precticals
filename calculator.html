@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(https://t3.ftcdn.net/jpg/03/22/69/00/360_F_322690092_hYa3EKfbNKCI1xvTJedjRc7pCa0kaCy8.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .contener {
+            background-color: rgba(12, 12, 12, 0.692);
+            border-radius: 10px;
+            border: 2px solid white;
+            box-shadow: 0 0 12px 5px white;
+            width: 300px;
+            padding-top: 15px;
+            overflow: hidden;
+        }
+
+        .inpbox {
+            text-align: center;
+            background-color: rgba(12, 12, 12, 0.459);
+            padding:5px 5px;
+        }
+
+        #inp {
+            width: 85%;
+            padding: 10px;
+            font-size: 1.5rem;
+            border: none;
+            outline: none;
+            text-align: right;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.486);
+        }
+
+        .numbox {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 15px;
+        }
+
+        .numbox button {
+            background-color: rgba(109, 109, 109, 0.376);
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .numbox button:hover {
+            background-color: rgba(109, 109, 109, 0.959);
+        }
+
+        .numbox button:active {
+            background-color: rgb(44, 43, 43);
+        }
+
+        .numbox button:nth-child(4n) {
+            background-color: rgb(244, 162, 97);
+        }
+
+        .numbox button:nth-child(4n):hover {
+            background-color: rgb(231, 111, 81);
+        }
+
+        .numbox button:nth-child(4n):active {
+            background-color: rgb(214, 52, 71);
+        }
+
+        .numbox button:last-child {
+            background-color: rgb(42, 157, 143);
+        }
+
+        .numbox button:last-child:hover {
+            background-color: rgb(33, 134, 122);
+        }
+
+        .numbox button:last-child:active {
+            background-color: rgb(23, 111, 92);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contener">
+        <div class="inpbox">
+            <input type="text" name="inp" id="inp">
+        </div>
+        <div class="numbox">
+            <button>AC</button>
+            <button>DEL</button>
+            <button>%</button>
+            <button>/</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>*</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>-</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>+</button>
+            <button>00</button>
+            <button>0</button>
+            <button>.</button>
+            <button>=</button>
+        </div>
+    </div>
+
+
+    <script>
+        let inp = document.getElementById("inp");
+        let btn = document.querySelectorAll("button");
+
+
+        let buttons = Array.from(btn);
+
+        let string = "";
+        buttons.forEach(bn => {
+            bn.addEventListener("click", (e) => {
+                let cal = e.target.innerHTML
+
+                if (cal == "AC") {
+                    string = "";
+                    inp.value = string;
+                } else if (cal == "DEL") {
+                    string = string.substring(0, string.length - 1)
+                    inp.value = string;
+                } else if (cal == "=") {
+                    // var res = isNaN(string)
+                    string = eval(string)
+                    inp.value =string
+                }
+                else {
+                    string += cal;
+                    inp.value = string;
+                }
+
+            });
+
+        });
+    </script>
+</body>
+
+</html>
