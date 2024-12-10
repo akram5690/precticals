@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Operations</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Math Operations</h2>
+        <div class="inp-box">
+            <h3>Enter 1st number:</h3><input type="text" id="inp1">
+            <h3>Enter 2nd number:</h3><input type="text" id="inp2">
+        </div>
+        <div class="maths">
+            <button>+</button>
+            <button>-</button>
+            <button>*</button>
+            <button>/</button>
+            <button>%</button>
+        </div>
+        <h3>Answer is:</h3><span id="sp"></span>
+    </div>
+
+    <script>
+        let inp1 = document.getElementById("inp1");
+        let inp2 = document.getElementById("inp2");
+        let buttons = document.querySelectorAll("button");
+        let span = document.getElementById("sp");
+
+        buttons.forEach(button => {
+            button.addEventListener("click", () => {
+                let num1 = Number(inp1.value);
+                let num2 = Number(inp2.value);
+
+
+                let operation = button.textContent;
+                if (operation == "+") {
+                    span.innerHTML = num1 + num2;
+                }
+                else if (operation == "-") {
+                    span.innerHTML = num1 - num2;
+                }
+                else if (operation == "*") {
+                    span.innerHTML = num1 * num2;
+                }
+                else if (operation == "/") {
+                    span.innerHTML = num1 / num2;
+                }
+                else if (operation == "%") {
+                    span.innerHTML = num1 % num2;
+                }
+
+            });
+        });
+    </script>
+</body>
+
+</html>
