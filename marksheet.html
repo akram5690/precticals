@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h3 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .cont p {
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        input[type="number"] {
+            padding: 8px;
+            width: 100px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .sp {
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        #btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #btn:hover {
+            background-color: #0056b3;
+        }
+
+        #show-marks {
+            margin-top: 20px;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #show-marks p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        #show-marks span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>Marksheet for Information Technology</h3>
+        <div class="cont">
+            <p>Enter Marks (0-100)</p>
+            <ul>
+                <li>C Language: <input type="number" id="id1" onkeyup="keys('id1', 'sp1')">
+                    <span class="sp" id="sp1"></span>
+                </li>
+                <li>C++ Language: <input type="number" id="id2" onkeyup="keys('id2', 'sp2')">
+                    <span class="sp" id="sp2"></span>
+                </li>
+                <li>Database: <input type="number" id="id3" onkeyup="keys('id3', 'sp3')">
+                    <span class="sp" id="sp3"></span>
+                </li>
+                <li>HTML: <input type="number" id="id4" onkeyup="keys('id4', 'sp4')">
+                    <span class="sp" id="sp4"></span>
+                </li>
+                <li>CSS: <input type="number" id="id5" onkeyup="keys('id5', 'sp5')">
+                    <span class="sp" id="sp5"></span>
+                </li>
+                <li>PhP: <input type="number" id="id6" onkeyup="keys('id6', 'sp6')">
+                    <span class="sp" id="sp6"></span>
+                </li>
+                <li>Core java: <input type="number" id="id7" onkeyup="keys('id7', 'sp7')">
+                    <span class="sp" id="sp7"></span>
+                </li>
+            </ul>
+            <button id="btn" onclick="show()">Show Result</button>
+        </div>
+        <div id="show-marks">
+            <p><span id="span1">Total: </span></p>
+            <p><span id="span2">Percentage: </span></p>
+            <p><span id="span3">Result: </span></p>
+        </div>
+    </div>
+
+
+    <script>
+        function keys(inputId, spanId) {
+            let inp = document.getElementById(inputId).value;
+            let span = document.getElementById(spanId);
+
+            if (inp == "") {
+                span.innerHTML = "paleas enter number";
+                span.style.color = "red";
+            } else if (inp < 0 || inp > 100) {
+                span.innerHTML = "invalid marks";
+                span.style.color = "red";
+            }else{
+                span.innerHTML = "";
+
+            }
+        }
+
+        function show() {
+            let sp1 = document.getElementById("span1");
+            let sp2 = document.getElementById("span2");
+            let sp3 = document.getElementById("span3");
+
+            let marks1 = Number(document.getElementById("id1").value);
+            let marks2 = Number(document.getElementById("id2").value);
+            let marks3 = Number(document.getElementById("id3").value);
+            let marks4 = Number(document.getElementById("id4").value);
+            let marks5 = Number(document.getElementById("id5").value);
+            let marks6 = Number(document.getElementById("id6").value);
+            let marks7 = Number(document.getElementById("id7").value);
+
+            let total = marks1 + marks2 + marks3 + marks4 + marks5 + marks6 + marks7;
+
+            let per = (total / 700) * 100;
+
+            let result = (marks1 >= 35 && marks2 >= 35 && marks3 >= 35 && marks4 >= 35 && marks5 >= 35 && marks6 >= 35 && marks7 >= 35) ? "pass" : "fail";
+
+            sp1.innerHTML = `Total : ${total}`
+            sp2.innerHTML = `Percentage : ${per}%`
+            sp3.innerHTML = `Result : ${result}`
+
+
+
+        }
+
+
+    </script>
+</body>
+
+</html>
