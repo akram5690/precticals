@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arithmetic operation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .box {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px 30px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #ans {
+            font-size: 20px;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        @media (max-width: 500px) {
+            .box {
+                padding: 15px;
+            }
+
+            input[type="text"], select, button {
+                font-size: 14px;
+            }
+
+            h3 {
+                font-size: 16px;
+            }
+
+            #ans {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="box">
+            <h3>1st number: </h3>
+            <input type="text" id="inp1">
+
+            <h3>2nd number: </h3>
+            <input type="text" id="inp2">
+
+            <h3>Select operation</h3>
+            <select name="" id="select">
+                <option value="select">select</option>
+                <option value="add">Addition</option>
+                <option value="sub">Subtraction</option>
+                <option value="mul">Multiplication</option>
+                <option value="div">Division</option>
+                <option value="mod">Modulus</option>
+            </select>
+
+            <button id="btn" onclick="operation()">Calculate</button>
+
+            <h3>Answer is:</h3><span id="ans"></span>
+        </div>
+    </div>
+
+    <script>
+        function operation() {
+            let inp1 = Number(document.getElementById("inp1").value);
+            let inp2 = Number(document.getElementById("inp2").value);
+            let sel = document.getElementById("select");
+            let span = document.getElementById("ans");
+            let ans = "";
+
+            let oprat = sel.value;
+
+            switch (oprat) {
+                case ("select"):
+                    span.innerHTML = "Please select an operation.";
+                    break;
+                case ("add"):
+                    ans = inp1 + inp2;
+                    span.innerHTML = ans;
+                    break;
+                case ("sub"):
+                    ans = inp1 - inp2;
+                    span.innerHTML = ans;
+                    break;
+                case ("mul"):
+                    ans = inp1 * inp2;
+                    span.innerHTML = ans;
+                    break;
+                case ("div"):
+                    if (inp2 === 0) {
+                        span.innerHTML = "Division by zero is not allowed.";
+                    } else {
+                        ans = inp1 / inp2;
+                        span.innerHTML = ans;
+                    }
+                    break;
+                case ("mod"):
+                    ans = inp1 % inp2;
+                    span.innerHTML = ans;
+                    break;
+                default:
+                    span.innerHTML = "Invalid operation.";
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>
