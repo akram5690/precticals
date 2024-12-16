@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>displaydate</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: black;
+        }
+        .contener{
+            width: 25%;
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgb(34, 33, 33);
+            border-radius: 15px;
+            background-color: rgba(241, 229, 229, 0.218);
+            line-height: 50px;
+            margin: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 2px 2px 12px 2px rgba(255, 255, 255, 0.315);
+        }
+        .contener:hover{
+            box-shadow: 2px 2px 12px 2px rgb(107, 161, 133);
+
+        }
+        label{
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 600;
+        }
+        p{            
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 600;
+        }
+        input[type="date"]{
+            background-color: rgb(30, 29, 29);
+            border-radius: 5px;
+            color: rgba(255, 255, 255, 0.5);            
+            padding: 5px 5px;
+            border: none;
+        }
+        .contener h3{
+            color: rgba(255, 255, 255, 0.5);
+            border-bottom: 5px double rgba(255, 255, 255, 0.5);
+        }
+        #btn{
+            width: 20%;
+            background-color: rgb(56, 55, 55);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="contener">
+        <h3>Display difference of Day, Month and Year of given 2 dated</h3>
+        <label>Enter Start Date: 
+            <input type="date" name="sdate" id="sdate">
+        </label>
+        <label>Enter End Date: 
+            <input type="date" name="sdate" id="edate">
+        </label>
+        <button id="btn">Display</button>
+        <p>Day is: <span id="day"></span></p>
+        <p>Month is: <span id="month"></span></p>
+        <p>Year is: <span id="year"></span></p>
+    </div> 
+    
+    <script>
+        let btn = document.getElementById("btn");
+
+        btn.addEventListener("click", ()=>{
+            let sdate = document.getElementById("sdate").value;
+            let start = new Date(sdate);
+            let edate = document.getElementById("edate").value;
+            let end = new Date(edate);
+            let days = end.getTime() - start.getTime();
+
+            let d = document.getElementById("day");
+            let m = document.getElementById("month");
+            let y = document.getElementById("year");
+            let day = days / (1000 * 60 * 60 * 24);
+            d.innerHTML = day;
+            d.style.color = "red";
+            
+            let month = Math.floor(day / 30.25);
+            m.innerHTML = month;
+            m.style.color = "red";
+            
+            let year = Math.round(day / 365.25);
+            y.innerHTML = year;
+            y.style.color = "red";
+        });
+    </script>
+    
+</body>
+</html>
