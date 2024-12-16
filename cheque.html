@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheque</title>
+    <style>
+
+        .contener {
+            width: 50%;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            padding: 25px;
+        }
+
+        .contener h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+        }
+        .feescont{
+            display: flex;
+        }
+
+        .fees {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .paid {
+            flex: 1;
+        }
+
+        .paid input[type="radio"] {
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        .paid span {
+            margin-right: 20px;
+            font-size: 14px;
+        }
+
+        #chaque,
+        #online,
+        #caseAm {
+            display: none;
+            margin-left: 70px;
+            
+        }
+
+        #chaque label,
+        #online label,
+        #caseAm label {
+            color: #333;
+        }
+
+        #chaque input,
+        #online input,
+        #caseAm input {
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .rfees input {
+            width: 100%;
+        }
+
+        button {
+            display: block;
+            cursor: pointer;
+            width: 20%;
+            padding: 10px;
+            background-color: #000000;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contener">
+        <h1>Payment Module</h1>
+        <div class="detail">
+            <div class="name">
+                <label>Enter Name:</label>
+                <input type="text" id="fullName">
+            </div>
+            <div class="feescont">
+            <div class="fees">
+                <div>
+                    <label>Total Fees:</label>
+                    <input type="text" id="tFees">
+                </div>
+                <div class="paid">
+                    <label>Paid Fees:</label>
+                    <input type="radio" name="fees" id="ch" onclick="showSection('chaque')"><span>Cheque</span>
+                    <input type="radio" name="fees" id="on" onclick="showSection('online')"><span>Online</span>
+                    <input type="radio" name="fees" id="cs" onclick="showSection('caseAm')"><span>Cash</span>
+                </div>
+            </div>
+            <div id="chaque">
+                <label>Cheque No:</label>
+                <input type="text" id="chNo">
+                <label>Amount:</label>
+                <input type="text" id="amountCh">
+            </div>
+            <div id="online">
+                <label>UPI ID:</label>
+                <input type="text" id="upi">
+                <label>Amount:</label>
+                <input type="text" id="amountOn">
+            </div>
+            <div id="caseAm">
+                <label>Cash Amount:</label>
+                <input type="text" id="case">
+            </div>
+            </div>
+            <div class="rfees">
+                <label>Remaining Fees:</label>
+                <input type="text" id="rfees">
+            </div>
+            <button id="btn">Convert to PDF</button>
+        </div>
+    </div>
+    <script>
+        function showSection(sectionId) {
+            document.getElementById('chaque').style.display = 'none';
+            document.getElementById('online').style.display = 'none';
+            document.getElementById('caseAm').style.display = 'none';
+
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>
